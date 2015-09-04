@@ -4,8 +4,8 @@
 // MODULES //
 
 var chai = require( 'chai' ),
-	table = require( './../lib' );
-
+	table = require( './../lib' ),
+	isArrayArray = require( 'validate.io-array-array' );
 
 // VARIABLES //
 
@@ -21,11 +21,9 @@ describe( 'datasets-male-first-names-us-frequency', function tests() {
 		expect( table ).to.be.an( 'object' );
 	});
 
-	it( 'should map state abbreviations to names', function test() {
-		assert.strictEqual( table[ 'Ashley' ][ 1980 ], 7295 );
-		assert.strictEqual( table[ 'Ashley' ][ 2000 ], 17995 );
-		assert.strictEqual( table[ 'Sarah' ][ 1970 ], 5621 );
-		assert.strictEqual( table[ 'Sarah' ][ 1995 ], 21365 );
+	it( 'should retrieve an array-of-arrays for a given name', function test() {
+		assert.isTrue( isArrayArray( table[ 'ashley' ] ) );
+		assert.isTrue( isArrayArray( table[ 'sarah' ] ) );
 	});
 
 });

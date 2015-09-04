@@ -15,23 +15,45 @@ $ npm install datasets-female-first-names-us-frequency
 ## Usage
 
 ``` javascript
-var foo = require( 'datasets-female-first-names-us-frequency' );
+var data = require( 'datasets-female-first-names-us-frequency' );
 ```
 
-#### foo()
+#### data
 
-What does `foo` do?
+A data [`object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) with keys corresponding to all the names given to *female* children born in the United States in the period from `1880-2014`. All names are in lower-case letters. For each name, an [`array-of-arrays`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) is exported with birth frequencies for each year. For a given name and year, no data is available if less *five* children with said name were born in that year.
 
 ``` javascript
-foo()
-// returns `undefined`
+// Retrieve data for the name "Ashley"
+data.ashley
+/*
+	[
+		[ 1917, 5 ],
+		[ 1938, 7 ],
+		[ 1941, 6 ],
+		(...),
+		[ 2012, 4691 ],
+		[ 2013, 3930 ],
+		[ 2014, 3539 ]
+	]
+*/
 ```
 
+### Reference
+
+The original data was collected by the [Social Security Administration](http://www.ssa.gov/oact/babynames/) and is based on Social Security card applications for births that occurred in the United States after 1879. Since this data is based on government documents, it should be considered public domain.
 
 ## Examples
 
 ``` javascript
-var foo = require( 'datasets-female-first-names-us-frequency' );
+// Frequencies for the name `Gertrude`
+var freqs,
+ 	i;
+
+freqs = require('datasets-female-first-names-us-frequency/lib/gertrude.json' );
+
+for( i = 0; i < freqs.length; i++ ) {
+	console.log( 'Year: ' + freqs[ i ][ 0 ] + '; Count: ' + freqs[ i ][ 1 ] );
+}
 ```
 
 To run the example code from the top-level application directory,

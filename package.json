@@ -48,7 +48,9 @@
   "bugs": {
     "url": "https://github.com/datasets-io/female-first-names-us-frequency/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "validate.io-array-array": "^1.0.0"
+  },
   "devDependencies": {
     "chai": "3.x.x",
     "codecov.io": "^0.1.5",
